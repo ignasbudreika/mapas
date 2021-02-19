@@ -10,7 +10,7 @@ class MainScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text("Hello"),
+          child: Text("Hello team"),
         ),
       ),
     );
