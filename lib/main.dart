@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mapas/screen/map.dart';
 
-void main() {
-  runApp(MainScreen());
-}
+void main() => runApp(new MyApp());
 
-class MainScreen extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text("Hello team"),
-        ),
-      ),
+    return new MaterialApp(
+      home: Scaffold(body: MapScreen()),
     );
   }
 }
