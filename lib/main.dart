@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mapas/screen/map.dart';
+import 'package:mapas/screen/menu.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(new Example());
 
-class MyApp extends StatelessWidget {
+class Example extends StatefulWidget {
+  @override
+  _ExampleState createState() => _ExampleState();
+}
+
+class _ExampleState extends State<Example> {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: Scaffold(body: MapScreen()),
-    );
+    return new MaterialApp(home: MenuScreen());
   }
 }
