@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:mapas/screen/map.dart';
 
 class MenuScreen extends StatefulWidget {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Map',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    MapScreen(),
     Text(
       'Events',
       style: optionStyle,
