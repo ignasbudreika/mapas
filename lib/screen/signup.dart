@@ -8,7 +8,7 @@ class SignUp extends StatelessWidget {
             resizeToAvoidBottomPadding: false,
             body: Container(
                 color: Color.fromRGBO(
-                    0, 0, 45, 1), //Color.fromRGBO(34, 38, 76, 1),
+                    255, 255, 255, 1), //Color.fromRGBO(34, 38, 76, 1),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -18,7 +18,7 @@ class SignUp extends StatelessWidget {
                             "HELLO THERE!",
                             style: TextStyle(
                                 fontSize: 35,
-                                color: Color.fromRGBO(255, 255, 255,
+                                color: Color.fromRGBO(0, 0, 0,
                                     1) //Color.fromRGBO(179, 83, 113, 1)
                                 ),
                           )),
@@ -27,17 +27,17 @@ class SignUp extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                               hintText: 'Username',
-                              hintStyle: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 1))),
+                              hintStyle:
+                                  TextStyle(color: Color.fromRGBO(0, 0, 0, 1))),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.fromLTRB(60.0, 20, 60.0, 0.0),
                         child: TextField(
                           decoration: InputDecoration(
-                              hintText: 'Email Adress',
-                              hintStyle: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 1))),
+                              hintText: 'Email Address',
+                              hintStyle:
+                                  TextStyle(color: Color.fromRGBO(0, 0, 0, 1))),
                         ),
                       ),
                       Container(
@@ -45,8 +45,8 @@ class SignUp extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                               hintText: 'Password',
-                              hintStyle: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 1))),
+                              hintStyle:
+                                  TextStyle(color: Color.fromRGBO(0, 0, 0, 1))),
                         ),
                       ),
                       Container(
@@ -54,8 +54,8 @@ class SignUp extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                               hintText: 'Repeat password',
-                              hintStyle: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 1))),
+                              hintStyle:
+                                  TextStyle(color: Color.fromRGBO(0, 0, 0, 1))),
                         ),
                       ),
                       Container(
@@ -67,13 +67,13 @@ class SignUp extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   //borderRadius: BorderRadius.circular(20),
                                   side: BorderSide(
-                                      color: Color.fromRGBO(255, 255, 255, 1))),
+                                      color: Color.fromRGBO(0, 0, 0, 1))),
                               onPressed: () {},
-                              color: Color.fromRGBO(255, 255, 255, 1),
+                              color: Color.fromRGBO(0, 0, 0, 1),
                               child: Text(
                                 "Sign Up",
                                 style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 52, 1)),
+                                    color: Color.fromRGBO(255, 255, 255, 1)),
                               ),
                             ),
                           )),
@@ -83,7 +83,7 @@ class SignUp extends StatelessWidget {
                             "I am already a member",
                             style: TextStyle(
                                 decoration: TextDecoration.underline,
-                                color: Color.fromRGBO(255, 255, 255, 1)),
+                                color: Color.fromRGBO(0, 0, 0, 1)),
                           ))
                     ]))));
   }
