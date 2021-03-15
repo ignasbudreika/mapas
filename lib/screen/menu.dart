@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mapas/screen/map.dart';
+import 'package:mapas/screen/profile.dart';
 
 class MenuScreen extends StatefulWidget {
   static const TextStyle optionStyle =
@@ -17,10 +18,7 @@ class MenuScreen extends StatefulWidget {
       'Groups',
       style: optionStyle,
     ),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+    MyHomePage(),
   ];
 
   @override

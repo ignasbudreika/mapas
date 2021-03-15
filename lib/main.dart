@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mapas/screen/menu.dart';
-import 'package:mapas/screen/signup.dart';
+import 'screen/menu.dart';
 
-void main() => runApp(SignUp());
+void main() => runApp(new Example());
 
 class Example extends StatefulWidget {
   @override
