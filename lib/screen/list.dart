@@ -5,7 +5,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final title = 'Įvykių sąrašas';
+    final title = 'Event list';
 
     return MaterialApp(
       title: title,
@@ -17,15 +17,15 @@ class MyApp extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: Icon(Icons.sports_basketball),
-              title: Text('Susirinkimas sportui'),
+              title: Text('Meet to play'),
             ),
             ListTile(
               leading: Icon(Icons.audiotrack),
-              title: Text('Paklausyt muziką'),
+              title: Text('Rockband concert'),
             ),
             ListTile(
               leading: Icon(Icons.chat),
-              title: Text('Pasikalbėti'),
+              title: Text('Chat with strangers'),
             ),
           ],
         ),
