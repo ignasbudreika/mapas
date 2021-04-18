@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:mapas/screen/signup.dart';
+import 'package:mapas/screen/menu.dart';
 
 class LogIn extends StatelessWidget {
   @override
@@ -58,7 +59,10 @@ class LogIn extends StatelessWidget {
                         color: Colors.grey, //Color.fromRGBO(255, 255, 255, 1),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MenuScreen()),
+                    ),
                     color: Colors.grey, //Color.fromRGBO(255, 255, 255, 1),
                     child: Text(
                       "Log In",
