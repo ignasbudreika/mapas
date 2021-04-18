@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map/plugin_api.dart';
+import 'package:geocoder/geocoder.dart';
 import 'package:mapas/location/location.dart';
 import 'package:latlong/latlong.dart';
 
@@ -58,12 +59,37 @@ class _MapScreenState extends State<MapScreen> {
                 width: 50.0,
                 height: 50.0,
                 point: _centerLocationVariable,
-                builder: (ctx) => Container(
+                builder: (ctx) => GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          height: 100,
+                          color: Colors.white,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Text("Car meet klp"),
+                                Text(DateTime(2021, 04, 20).toString()),
+                                Text("malku ilanka")
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  child: Container(
                     child: Icon(
-                  Icons.location_on_outlined,
-                  color: Colors.white,
-                  size: 50.0,
-                )),
+                      Icons.location_on_outlined,
+                      color: Colors.white,
+                      size: 50.0,
+                    ),
+                  ),
+                ),
               ),
             ],
           )
