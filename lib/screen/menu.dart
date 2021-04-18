@@ -31,9 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: SafeArea(
-        child: MenuScreen._widgetOptions[_selectedIndex],
-      ),
+      body: MenuScreen._widgetOptions[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(color: Colors.white, boxShadow: [
           BoxShadow(blurRadius: 12, color: Colors.black.withOpacity(.1))
