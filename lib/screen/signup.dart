@@ -79,11 +79,14 @@ class SignUp extends StatelessWidget {
                           )),
                       Container(
                           margin: EdgeInsets.fromLTRB(60.0, 40, 40.0, 0.0),
-                          child: Text(
-                            "I am already a member",
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                color: Color.fromRGBO(0, 0, 0, 1)),
+                          child: GestureDetector(
+                            onTap: () => Navigator.pop(context),
+                            child: Text(
+                              "I am already a member",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Color.fromRGBO(0, 0, 0, 1)),
+                            ),
                           ))
                     ]))));
   }

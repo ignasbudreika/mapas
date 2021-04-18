@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:mapas/screen/signup.dart';
 
 class LogIn extends StatelessWidget {
   @override
@@ -74,11 +76,18 @@ class LogIn extends StatelessWidget {
                   child: RichText(
                     text: TextSpan(children: [
                       TextSpan(
-                        text: 'Don\'t have an account? ',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
+                          text: 'Don\'t have an account? ',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignUp()),
+                              );
+                            }),
                       TextSpan(
                         text: 'Sign Up',
                         style: TextStyle(

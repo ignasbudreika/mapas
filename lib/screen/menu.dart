@@ -3,6 +3,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mapas/screen/map.dart';
 import 'package:mapas/screen/profile.dart';
+import 'package:mapas/screen/login.dart';
+import 'package:mapas/screen/signup.dart';
 
 class MenuScreen extends StatefulWidget {
   static const TextStyle optionStyle =
@@ -10,14 +12,8 @@ class MenuScreen extends StatefulWidget {
 
   static List<Widget> _widgetOptions = <Widget>[
     MapScreen(),
-    Text(
-      'Events',
-      style: optionStyle,
-    ),
-    Text(
-      'Groups',
-      style: optionStyle,
-    ),
+    LogIn(),
+    SignUp(),
     MyHomePage(),
   ];
 
