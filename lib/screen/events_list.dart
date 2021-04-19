@@ -24,14 +24,14 @@ class EventsList extends StatelessWidget {
               ],
             ),
           ),
-          Button()
+          NewEventButton()
         ]),
       ),
     );
   }
 }
 
-class Button extends StatelessWidget {
+class NewEventButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(

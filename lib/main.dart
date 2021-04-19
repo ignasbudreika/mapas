@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mapas/screen/login.dart';
 
-void main() => runApp(new Example());
+void main() => runApp(new Application());
 
-class Example extends StatefulWidget {
+class Application extends StatefulWidget {
   @override
-  _ExampleState createState() => _ExampleState();
+  _Application createState() => _Application();
 }
 
-class _ExampleState extends State<Example> {
+class _Application extends State<Application> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(home: LogIn());
