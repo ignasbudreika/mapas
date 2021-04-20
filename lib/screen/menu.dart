@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:mapas/models/event_model.dart';
 import 'package:mapas/screen/map.dart';
 import 'package:mapas/screen/profile.dart';
 import 'package:mapas/screen/events_list.dart';
@@ -12,10 +13,7 @@ class Menu extends StatefulWidget {
   static List<Widget> _widgetOptions = <Widget>[
     MapScreen(),
     EventsList(),
-    Text(
-      'Groups',
-      style: optionStyle,
-    ),
+    Text("Groups"),
     Profile(),
   ];
 
@@ -25,6 +23,12 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   int _selectedIndex = 0;
+  EventModel event;
+
+  @override
+  didChangeDependencies() async {
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
