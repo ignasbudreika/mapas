@@ -7,7 +7,7 @@ class LogInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: Container(
         color: Colors.white, //Color.fromRGBO(34, 38, 76, 1),
         child: Column(
@@ -51,7 +51,7 @@ class LogInScreen extends StatelessWidget {
               child: ButtonTheme(
                 minWidth: 115.0,
                 height: 45.0,
-                child: RaisedButton(
+                child: MaterialButton(
                   shape: RoundedRectangleBorder(
                     //borderRadius: BorderRadius.circular(20),
                     side: BorderSide(
@@ -74,7 +74,7 @@ class LogInScreen extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.fromLTRB(60.0, 40, 40.0, 0.0),
-              child: FlatButton(
+              child: MaterialButton(
                 onPressed: () {},
                 child: RichText(
                   text: TextSpan(children: [
