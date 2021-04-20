@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EventsList extends StatelessWidget {
+class EventsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

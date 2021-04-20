@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:grouped_buttons/grouped_buttons.dart';
 
-class Profile extends StatefulWidget {
-  Profile({Key key, this.title}) : super(key: key);
+class ProfileScreen extends StatefulWidget {
+  ProfileScreen({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -11,7 +11,7 @@ class Profile extends StatefulWidget {
   _ProfileState createState() => new _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;

@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:mapas/screen/signup.dart';
 import 'package:mapas/screen/menu.dart';
 
-class LogIn extends StatelessWidget {
+class LogInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
