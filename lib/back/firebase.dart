@@ -17,7 +17,6 @@ class Firebase {
       event.id = id;
       event.title = dataMap['title'].toString();
       event.start = dataMap['start'].toString();
-      event.end = dataMap['end'].toString();
       event.location = dataMap['location'].toString();
       event.description = dataMap['description'].toString();
     } catch (e) {
