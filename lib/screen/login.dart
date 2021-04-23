@@ -7,7 +7,7 @@ class LogIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: Container(
         color: Colors.white, //Color.fromRGBO(34, 38, 76, 1),
         child: Column(

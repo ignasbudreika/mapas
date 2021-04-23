@@ -5,7 +5,7 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            resizeToAvoidBottomPadding: false,
+            resizeToAvoidBottomInset: false,
             body: Container(
                 color: Color.fromRGBO(
                     255, 255, 255, 1), //Color.fromRGBO(34, 38, 76, 1),
