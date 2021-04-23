@@ -50,16 +50,28 @@ class _NewEventState extends State<NewEventScreen> {
                             alignment: Alignment.centerLeft,
                             child: Text('Add new',
                                 style: TextStyle(
-                                    fontSize: 60.0,
+                                    fontSize: 50.0,
                                     fontWeight: FontWeight.bold)),
                           ),
                           Container(
-                            alignment: Alignment.centerLeft,
-                            child: Text('Event',
-                                style: TextStyle(
-                                    fontSize: 60.0,
-                                    fontWeight: FontWeight.bold)),
-                          ),
+                              alignment: Alignment.centerLeft,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Event ',
+                                    style: TextStyle(
+                                        fontSize: 50.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    '.',
+                                    style: TextStyle(
+                                        fontSize: 50.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey[400]),
+                                  ),
+                                ],
+                              )),
                         ],
                       )),
                   SizedBox(
@@ -186,9 +198,6 @@ class _NewEventState extends State<NewEventScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
                           Container(
                             height: 35.0,
                             width: 120.0,
@@ -202,7 +211,7 @@ class _NewEventState extends State<NewEventScreen> {
                               color: Colors.grey[800],
                             ),
                             child: GestureDetector(
-                              onTap: () => {
+                              onTap: () async => {
                                 if (_formKey.currentState.validate())
                                   {
                                     // example of how to get form data
@@ -213,6 +222,11 @@ class _NewEventState extends State<NewEventScreen> {
                                     // call function to add data to database
                                     // if success add snackbar of success
                                     // if not add unsuccessful snackbar
+                                    //
+                                    //  example of LatLng parsing
+                                    //     print(await MapLocation
+                                    //     .determineGeoLocation(
+                                    //         "Turgaus g. 33, Klaipėda 91249")),
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(content: Text('event added'))),
                                     Navigator.pop(context),
