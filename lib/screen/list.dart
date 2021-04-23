@@ -25,25 +25,25 @@ class EventsList extends StatelessWidget {
               ],
             ),
           ),
-          Button(),
+          EventButton()
         ]),
       ),
     );
   }
 }
 
-class Button extends StatelessWidget {
+class EventButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomRight,
       child: MaterialButton(
               onPressed: () {},
-              color: Colors.green,
+              color: Colors.grey,
               textColor: Colors.white,
               child: Icon(
                 Icons.add,
-                size: 45,
+                size: 20,
               ),
               padding: EdgeInsets.all(10),
               shape: CircleBorder(),
