@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mapas/screen/menu.dart';
+import 'package:mapas/screen/new_event.dart';
 
 void main() => runApp(new Application());
 
