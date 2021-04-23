@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:mapas/screen/signup.dart';
 import 'package:mapas/screen/menu.dart';
 
-class LogIn extends StatelessWidget {
+class LogInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +51,7 @@ class LogIn extends StatelessWidget {
               child: ButtonTheme(
                 minWidth: 115.0,
                 height: 45.0,
-                child: RaisedButton(
+                child: MaterialButton(
                   shape: RoundedRectangleBorder(
                     //borderRadius: BorderRadius.circular(20),
                     side: BorderSide(
@@ -74,7 +74,7 @@ class LogIn extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.fromLTRB(60.0, 40, 40.0, 0.0),
-              child: FlatButton(
+              child: MaterialButton(
                 onPressed: () {},
                 child: RichText(
                   text: TextSpan(children: [

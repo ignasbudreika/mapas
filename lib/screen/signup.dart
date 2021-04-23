@@ -63,7 +63,7 @@ class SignUp extends StatelessWidget {
                           child: ButtonTheme(
                             minWidth: 115.0,
                             height: 45.0,
-                            child: RaisedButton(
+                            child: MaterialButton(
                               shape: RoundedRectangleBorder(
                                   //borderRadius: BorderRadius.circular(20),
                                   side: BorderSide(

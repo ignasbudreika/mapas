@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class NewGroup extends StatefulWidget {
+class NewGroupScreen extends StatefulWidget {
   @override
   _NewGroupState createState() => _NewGroupState();
 }
 
-class _NewGroupState extends State<NewGroup> {
+class _NewGroupState extends State<NewGroupScreen> {
   @override
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;

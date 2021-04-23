@@ -12,9 +12,12 @@ class Menu extends StatefulWidget {
 
   static List<Widget> _widgetOptions = <Widget>[
     MapScreen(),
-    EventsList(),
-    Text("Groups"),
-    Profile(),
+    EventsListScreen(),
+    Text(
+      'Groups',
+      style: optionStyle,
+    ),
+    ProfileScreen(),
   ];
 
   @override

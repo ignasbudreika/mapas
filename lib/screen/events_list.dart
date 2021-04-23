@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EventsList extends StatelessWidget {
+class EventsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +36,7 @@ class NewEventButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomRight,
-      child: RaisedButton(
+      child: MaterialButton(
         onPressed: null,
         child: const Text('+', style: TextStyle(fontSize: 20)),
         shape: CircleBorder(),

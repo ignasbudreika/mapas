@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Event extends StatelessWidget {
+class EventScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -199,7 +199,7 @@ class Event extends StatelessWidget {
                   child: ButtonTheme(
                     minWidth: 115.0,
                     height: 45.0,
-                    child: RaisedButton(
+                    child: MaterialButton(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                         side: BorderSide(
