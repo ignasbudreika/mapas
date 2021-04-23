@@ -3,37 +3,33 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mapas/screen/map.dart';
 import 'package:mapas/screen/profile.dart';
+import 'package:mapas/screen/events_list.dart';
 
-class MenuScreen extends StatefulWidget {
+class Menu extends StatefulWidget {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
 
   static List<Widget> _widgetOptions = <Widget>[
     MapScreen(),
-    Text(
-      'Events',
-      style: optionStyle,
-    ),
+    EventsListScreen(),
     Text(
       'Groups',
       style: optionStyle,
     ),
-    MyHomePage(),
+    ProfileScreen(),
   ];
 
   @override
-  _MenuScreenState createState() => _MenuScreenState();
+  _MenuState createState() => _MenuState();
 }
 
-class _MenuScreenState extends State<MenuScreen> {
+class _MenuState extends State<Menu> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: SafeArea(
-        child: MenuScreen._widgetOptions[_selectedIndex],
-      ),
+      body: Menu._widgetOptions[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(color: Colors.white, boxShadow: [
           BoxShadow(blurRadius: 12, color: Colors.black.withOpacity(.1))

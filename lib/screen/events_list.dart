@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-class EventsList extends StatelessWidget {
+class EventsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,29 +24,26 @@ class EventsList extends StatelessWidget {
               ],
             ),
           ),
-          EventButton()
+          NewEventButton()
         ]),
       ),
     );
   }
 }
 
-class EventButton extends StatelessWidget {
+class NewEventButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomRight,
       child: MaterialButton(
-              onPressed: () {},
-              color: Colors.grey,
-              textColor: Colors.white,
-              child: Icon(
-                Icons.add,
-                size: 20,
-              ),
-              padding: EdgeInsets.all(10),
-              shape: CircleBorder(),
-          ),
+        onPressed: null,
+        child: const Text('+', style: TextStyle(fontSize: 20)),
+        shape: CircleBorder(),
+        color: Colors.green,
+        textColor: Colors.white,
+        elevation: 3,
+      ),
     );
   }
 }

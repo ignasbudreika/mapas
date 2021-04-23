@@ -5,7 +5,7 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            resizeToAvoidBottomPadding: false,
+            resizeToAvoidBottomInset: false,
             body: Container(
                 color: Color.fromRGBO(
                     255, 255, 255, 1), //Color.fromRGBO(34, 38, 76, 1),
@@ -63,7 +63,7 @@ class SignUp extends StatelessWidget {
                           child: ButtonTheme(
                             minWidth: 115.0,
                             height: 45.0,
-                            child: RaisedButton(
+                            child: MaterialButton(
                               shape: RoundedRectangleBorder(
                                   //borderRadius: BorderRadius.circular(20),
                                   side: BorderSide(
@@ -79,11 +79,14 @@ class SignUp extends StatelessWidget {
                           )),
                       Container(
                           margin: EdgeInsets.fromLTRB(60.0, 40, 40.0, 0.0),
-                          child: Text(
-                            "I am already a member",
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                color: Color.fromRGBO(0, 0, 0, 1)),
+                          child: GestureDetector(
+                            onTap: () => Navigator.pop(context),
+                            child: Text(
+                              "I am already a member",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Color.fromRGBO(0, 0, 0, 1)),
+                            ),
                           ))
                     ]))));
   }
