@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class EventsList extends StatelessWidget {
+class EventsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,14 +25,14 @@ class EventsList extends StatelessWidget {
               ],
             ),
           ),
-          EventButton()
+          NewEventButton()
         ]),
       ),
     );
   }
 }
 
-class EventButton extends StatelessWidget {
+class NewEventButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
