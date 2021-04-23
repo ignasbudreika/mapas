@@ -2,7 +2,7 @@ import 'package:geocoder/geocoder.dart';
 import 'package:latlong/latlong.dart';
 
 class MapLocation {
-  static Future<LatLng> determineCenterPosition(String city) async {
+  static Future<LatLng> determineGeoLocation(String city) async {
     var _currentLatLng;
 
     await Geocoder.local.findAddressesFromQuery(city).then((value) =>
