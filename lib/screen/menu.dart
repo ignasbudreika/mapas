@@ -11,7 +11,7 @@ class Menu extends StatefulWidget {
 
   static List<Widget> _widgetOptions = <Widget>[
     MapScreen(),
-    EventsListScreen(),
+    EventButton(),
     Text(
       'Groups',
       style: optionStyle,
