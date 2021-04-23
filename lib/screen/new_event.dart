@@ -205,10 +205,14 @@ class _NewEventState extends State<NewEventScreen> {
                               onTap: () => {
                                 if (_formKey.currentState.validate())
                                   {
+                                    // example of how to get form data
                                     print(titleController.text +
                                         descriptionController.text +
                                         dateController.text +
                                         addressController.text),
+                                    // call function to add data to database
+                                    // if success add snackbar of success
+                                    // if not add unsuccessful snackbar
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(content: Text('event added'))),
                                     Navigator.pop(context),
