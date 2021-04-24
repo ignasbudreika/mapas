@@ -6,27 +6,32 @@ class EventsListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(children: [
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                ListTile(
-                  leading: Icon(Icons.sports_basketball),
-                  title: Text('Meet to play'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.audiotrack),
-                  title: Text('Rockband concert'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.chat),
-                  title: Text('Team meet'),
-                ),
-              ],
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.sports_basketball),
+                    title: Text('Meet to play'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.audiotrack),
+                    title: Text('Rockband concert'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.chat),
+                    title: Text('Team meet'),
+                  ),
+                ],
+              ),
             ),
-          ),
-          NewEventButton()
-        ]),
+            NewEventButton(),
+            SizedBox(
+              height: 15,
+            )
+          ],
+        ),
       ),
     );
   }
