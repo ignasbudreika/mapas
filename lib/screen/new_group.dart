@@ -92,7 +92,7 @@ class _NewGroupState extends State<NewGroupScreen> {
                       title: const Text(
                           'Allow everyone to create events for this group'),
                       value: _valueCheck,
-                      onChanged: (bool value) {
+                      onChanged: (value) {
                         setState(() {
                           _valueCheck = value;
                         });
