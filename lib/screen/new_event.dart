@@ -243,6 +243,9 @@ class _NewEventState extends State<NewEventScreen> {
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 15,
+                          ),
                         ],
                       ),
                     ),
