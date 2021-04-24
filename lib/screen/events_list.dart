@@ -6,25 +6,23 @@ class EventsListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.sports_basketball),
-                    title: Text('Meet to play'),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.audiotrack),
-                    title: Text('Rockband concert'),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.chat),
-                    title: Text('Team meet'),
-                  ),
-                ],
-              ),
+        body: Column(children: [
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                ListTile(
+                  title: Text('Meet to play'),
+                  trailing: DeleteEventButton(),
+                ),
+                ListTile(
+                  title: Text('Rockband concert'),
+                  trailing: DeleteEventButton(),
+                ),
+                ListTile(
+                  title: Text('Team meet'),
+                  trailing: DeleteEventButton(),
+                ),
+              ],
             ),
             NewEventButton(),
             SizedBox(
@@ -59,5 +57,20 @@ class NewEventButton extends StatelessWidget {
         shape: CircleBorder(),
       ),
     );
+  }
+}
+
+class DeleteEventButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialButton(
+          onPressed: () {},
+          child: Icon(
+            Icons.close_rounded,
+            size: 20,
+          ),
+          padding: EdgeInsets.all(1),
+          shape:CircleBorder(),
+      );
   }
 }
