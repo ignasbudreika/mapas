@@ -24,9 +24,12 @@ class EventsListScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          NewEventButton()
-        ]),
+            NewEventButton(),
+            SizedBox(
+              height: 15,
+            )
+          ],
+        ),
       ),
     );
   }
