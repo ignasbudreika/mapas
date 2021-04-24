@@ -37,13 +37,16 @@ class NewEventButton extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomRight,
       child: MaterialButton(
-        onPressed: null,
-        child: const Text('+', style: TextStyle(fontSize: 20)),
-        shape: CircleBorder(),
-        color: Colors.green,
-        textColor: Colors.white,
-        elevation: 3,
-      ),
+              onPressed: () {},
+              color: Colors.grey,
+              textColor: Colors.white,
+              child: Icon(
+                Icons.add,
+                size: 20,
+              ),
+              padding: EdgeInsets.all(10),
+              shape: CircleBorder(),
+          ),
     );
   }
 }
