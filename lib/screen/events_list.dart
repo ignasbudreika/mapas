@@ -38,7 +38,12 @@ class NewEventButton extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomRight,
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewEventScreen()),
+          );
+        },
         color: Colors.grey,
         textColor: Colors.white,
         child: Icon(
