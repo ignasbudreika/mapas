@@ -19,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   LatLng _centerLocationVariable;
 
   Future<void> getCenterPosition() async {
-    MapLocation.determineCenterPosition("Klaipeda").then((value) {
+    MapLocation.determineGeoLocation("Klaipeda").then((value) {
       setState(() {
         _centerLocationVariable = value;
       });

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mapas/screen/new_event.dart';
 
 class EventsListScreen extends StatelessWidget {
   @override
@@ -37,16 +38,21 @@ class NewEventButton extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomRight,
       child: MaterialButton(
-              onPressed: () {},
-              color: Colors.grey,
-              textColor: Colors.white,
-              child: Icon(
-                Icons.add,
-                size: 20,
-              ),
-              padding: EdgeInsets.all(10),
-              shape: CircleBorder(),
-          ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewEventScreen()),
+          );
+        },
+        color: Colors.grey,
+        textColor: Colors.white,
+        child: Icon(
+          Icons.add,
+          size: 20,
+        ),
+        padding: EdgeInsets.all(10),
+        shape: CircleBorder(),
+      ),
     );
   }
 }
