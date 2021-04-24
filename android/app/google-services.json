@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "486120065966",
+    "project_id": "prgrml",
+    "storage_bucket": "prgrml.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486120065966:android:2258ff5d34b03ba3a9963f",
+        "android_client_info": {
+          "package_name": "com.example.mapas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486120065966-amvo912cbmjt2395mbmpt14mjs50dmom.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi85YPhdupgrRmwS-eSaMeVienG9DD0M4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486120065966-amvo912cbmjt2395mbmpt14mjs50dmom.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

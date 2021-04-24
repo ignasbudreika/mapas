@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mapas/screen/menu.dart';
 import 'package:mapas/screen/new_event.dart';
 
-void main() => runApp(new Application());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(new Application());
+}
 
 class Application extends StatefulWidget {
   @override

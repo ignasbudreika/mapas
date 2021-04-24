@@ -38,17 +38,15 @@ class NewEventButton extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomRight,
       child: MaterialButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NewEventScreen()),
-          );
-        },
-        child: const Text('+', style: TextStyle(fontSize: 20)),
-        shape: CircleBorder(),
-        color: Colors.green,
+        onPressed: () {},
+        color: Colors.grey,
         textColor: Colors.white,
-        elevation: 3,
+        child: Icon(
+          Icons.add,
+          size: 20,
+        ),
+        padding: EdgeInsets.all(10),
+        shape: CircleBorder(),
       ),
     );
   }
