@@ -198,40 +198,40 @@ class _NewEventState extends State<NewEventScreen> {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 35.0,
-                            width: 120.0,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                                style: BorderStyle.solid,
-                                width: 1.0,
+                          GestureDetector(
+                            onTap: () async => {
+                              if (_formKey.currentState.validate())
+                                {
+                                  // example of how to get form data
+                                  print(titleController.text +
+                                      descriptionController.text +
+                                      dateController.text +
+                                      addressController.text),
+                                  // call function to add data to database
+                                  // if success add snackbar of success
+                                  // if not add unsuccessful snackbar
+                                  //
+                                  //  example of LatLng parsing
+                                  //     print(await MapLocation
+                                  //     .determineGeoLocation(
+                                  //         "Turgaus g. 33, Klaipėda 91249")),
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('event added'))),
+                                  Navigator.pop(context),
+                                }
+                            },
+                            child: Container(
+                              height: 35.0,
+                              width: 120.0,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                  style: BorderStyle.solid,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: Colors.grey[800],
                               ),
-                              borderRadius: BorderRadius.circular(10.0),
-                              color: Colors.grey[800],
-                            ),
-                            child: GestureDetector(
-                              onTap: () async => {
-                                if (_formKey.currentState.validate())
-                                  {
-                                    // example of how to get form data
-                                    print(titleController.text +
-                                        descriptionController.text +
-                                        dateController.text +
-                                        addressController.text),
-                                    // call function to add data to database
-                                    // if success add snackbar of success
-                                    // if not add unsuccessful snackbar
-                                    //
-                                    //  example of LatLng parsing
-                                    //     print(await MapLocation
-                                    //     .determineGeoLocation(
-                                    //         "Turgaus g. 33, Klaipėda 91249")),
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(content: Text('event added'))),
-                                    Navigator.pop(context),
-                                  }
-                              },
                               child: Center(
                                 child: Text(
                                   'add',
