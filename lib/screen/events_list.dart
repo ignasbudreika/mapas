@@ -6,23 +6,25 @@ class EventsListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(children: [
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                ListTile(
-                  title: Text('Meet to play'),
-                  trailing: DeleteEventButton(),
-                ),
-                ListTile(
-                  title: Text('Rockband concert'),
-                  trailing: DeleteEventButton(),
-                ),
-                ListTile(
-                  title: Text('Team meet'),
-                  trailing: DeleteEventButton(),
-                ),
-              ],
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    title: Text('Meet to play'),
+                    trailing: DeleteEventButton(),
+                  ),
+                  ListTile(
+                    title: Text('Rockband concert'),
+                    trailing: DeleteEventButton(),
+                  ),
+                  ListTile(
+                    title: Text('Team meet'),
+                    trailing: DeleteEventButton(),
+                  ),
+                ],
+              ),
             ),
             NewEventButton(),
             SizedBox(
@@ -63,14 +65,14 @@ class NewEventButton extends StatelessWidget {
 class DeleteEventButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  MaterialButton(
-          onPressed: () {},
-          child: Icon(
-            Icons.close_rounded,
-            size: 20,
-          ),
-          padding: EdgeInsets.all(1),
-          shape:CircleBorder(),
-      );
+    return MaterialButton(
+      onPressed: () {},
+      child: Icon(
+        Icons.close_rounded,
+        size: 20,
+      ),
+      padding: EdgeInsets.all(1),
+      shape: CircleBorder(),
+    );
   }
 }
