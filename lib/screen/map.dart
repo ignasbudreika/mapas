@@ -2,21 +2,32 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map/plugin_api.dart';
+import 'package:mapas/back/firebase.dart';
 import 'package:mapas/location/location.dart';
 import 'package:latlong/latlong.dart';
+import 'package:mapas/models/event_model.dart';
 
 class MapScreen extends StatefulWidget {
+  EventModel centerEvent;
+
+  MapScreen({this.centerEvent});
   @override
   _MapScreenState createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
+  List<Marker> markers = [];
+  LatLng _centerLocationVariable;
+
   initState() {
     super.initState();
-    getCenterPosition();
+    if (widget.centerEvent == null) {
+      getCenterPosition();
+    } else {
+      setCenterPosition();
+    }
+    getAllEvents();
   }
-
-  LatLng _centerLocationVariable;
 
   Future<void> getCenterPosition() async {
     MapLocation.determineGeoLocation("Klaipeda").then((value) {
@@ -26,10 +37,34 @@ class _MapScreenState extends State<MapScreen> {
     });
   }
 
+  void setCenterPosition() async {
+    setState(() {
+      _centerLocationVariable = LatLng(widget.centerEvent.location.latitude,
+          widget.centerEvent.location.longitude);
+    });
+  }
+
+  Future<void> getAllEvents() async {
+    Firebase firebase = new Firebase();
+    var allEvents = await firebase.getAllEvents();
+
+    initializeMarkers(allEvents);
+  }
+
+  void initializeMarkers(List<EventModel> allEvents) {
+    for (EventModel event in allEvents) {
+      if (!event.isDeleted) {
+        Marker eventMarker = marker(event);
+        markers.add(eventMarker);
+      }
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _centerLocationVariable == null
+        body: _centerLocationVariable == null || markers.isEmpty
             ? Center(
                 child: CircularProgressIndicator(),
               )
@@ -53,45 +88,130 @@ class _MapScreenState extends State<MapScreen> {
                 'id': 'mapbox.mapbox-streets-v7'
               }),
           MarkerLayerOptions(
-            markers: [
-              Marker(
-                width: 50.0,
-                height: 50.0,
-                point: _centerLocationVariable,
-                builder: (ctx) => GestureDetector(
-                  onTap: () {
-                    showModalBottomSheet<void>(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Container(
-                          height: 100,
-                          color: Colors.white,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                Text("Car meet klp"),
-                                Text(DateTime(2021, 04, 20).toString()),
-                                Text("malku ilanka")
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                  child: Container(
-                    child: Icon(
-                      Icons.location_on_outlined,
-                      color: Colors.white,
-                      size: 50.0,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            markers: markers,
           )
         ]);
+  }
+
+  Marker marker(EventModel event) {
+    return Marker(
+      point: LatLng(event.location.latitude, event.location.longitude),
+      builder: (ctx) => GestureDetector(
+        onTap: () {
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return Container(
+                height: 100,
+                color: Colors.white,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Title: ",
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
+                          ),
+                          Text(
+                            event.title,
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Start date: ",
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
+                          ),
+                          Text(
+                            event.start,
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Description: ",
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
+                          ),
+                          Text(
+                            event.description,
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Address: ",
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
+                          ),
+                          Text(
+                            event.address,
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+        child: Container(
+          child: Icon(
+            Icons.place,
+            color: Colors.white,
+            size: 35.0,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -17,12 +17,43 @@ class Firebase {
       event.id = id;
       event.title = dataMap['title'].toString();
       event.start = dataMap['start'].toString();
-      event.location = dataMap['location'].toString();
+      event.location = dataMap['location'];
+      event.address = dataMap['address'].toString();
       event.description = dataMap['description'].toString();
     } catch (e) {
       print(e);
     }
 
     return event;
+  }
+
+  Future<List<EventModel>> getAllEvents() async {
+    List<EventModel> events = [];
+
+    try {
+      final QuerySnapshot _docSnapshot =
+          await _firestore.collection('events').get();
+
+      DocumentSnapshot document;
+
+      for (document in _docSnapshot.docs) {
+        final Map<String, dynamic> dataMap = document.data();
+
+        EventModel event = new EventModel();
+        event.id = document.id;
+        event.title = dataMap['title'].toString();
+        event.start = dataMap['start'].toString();
+        event.location = dataMap['location'];
+        event.address = dataMap['address'].toString();
+        event.description = dataMap['description'].toString();
+        event.isDeleted = dataMap['isDeleted'];
+
+        events.add(event);
+      }
+    } catch (e) {
+      print(e);
+    }
+
+    return events;
   }
 }
