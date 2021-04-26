@@ -1,5 +1,6 @@
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:intl/intl.dart';
 
 class NewEventScreen extends StatefulWidget {
@@ -46,6 +47,22 @@ class _NewEventState extends State<NewEventScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: GestureDetector(
+                              child: Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.black,
+                                size: 25.0,
+                              ),
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            height: 25,
+                          ),
                           Container(
                             alignment: Alignment.centerLeft,
                             child: Text('Add new',
