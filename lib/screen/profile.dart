@@ -3,9 +3,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:grouped_buttons/grouped_buttons.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({Key key, this.title}) : super(key: key);
-
-  final String title;
+  ProfileScreen() : super();
 
   @override
   _ProfileState createState() => new _ProfileState();
@@ -181,7 +179,6 @@ class _ProfileState extends State<ProfileScreen> {
                         if (selected.length > 1) {
                           selected.removeAt(0);
                         } else {}
-                        _checked = selected;
                       }),
                     ),
                   ),
