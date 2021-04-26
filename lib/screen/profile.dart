@@ -28,6 +28,7 @@ class _ProfileState extends State<ProfileScreen> {
           new Scaffold(
             backgroundColor: Colors.transparent,
             body: new Container(
+              color: Colors.white,
               child: new Stack(
                 children: <Widget>[
                   new Align(
@@ -56,19 +57,8 @@ class _ProfileState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
-                  new Padding(
-                    padding: new EdgeInsets.only(top: _height / 4),
-                    child: new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(30.0),
-                            topLeft: Radius.circular(30.0)),
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
                   new Container(
-                      height: _height / 1.6,
+                      height: _height / 2,
                       alignment: Alignment.center,
                       child: Image(
                         width: 40,
@@ -78,7 +68,7 @@ class _ProfileState extends State<ProfileScreen> {
                   new Align(
                       alignment: Alignment.center,
                       child: new Container(
-                        height: _height / 5,
+                        height: _height / 3,
                         child: Text(
                           "vardenis.pavardenis@gmail.com",
                           style: TextStyle(
@@ -89,7 +79,7 @@ class _ProfileState extends State<ProfileScreen> {
                       )),
                   new Container(
                       margin: EdgeInsets.fromLTRB(100, 80, 0, 0),
-                      height: _height / 1.1,
+                      height: _height / 1.6,
                       alignment: Alignment.centerLeft,
                       child: Image(
                         width: 60,
@@ -98,7 +88,7 @@ class _ProfileState extends State<ProfileScreen> {
                       )),
                   new Container(
                     margin: EdgeInsets.fromLTRB(100, 80, 0, 0),
-                    height: _height / 1.2,
+                    height: _height / 1.6,
                     child: new Container(
                       alignment: Alignment.center,
                       child: new DropdownButton<String>(
@@ -121,7 +111,7 @@ class _ProfileState extends State<ProfileScreen> {
                   ),
                   new Container(
                       margin: EdgeInsets.fromLTRB(25, 250, 0, 0),
-                      height: _height / 1.2,
+                      height: _height / 2.5,
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Privatus rėžimas",
@@ -130,7 +120,7 @@ class _ProfileState extends State<ProfileScreen> {
                       )),
                   new Container(
                       margin: EdgeInsets.fromLTRB(25, 300, 0, 0),
-                      height: _height / 1.2,
+                      height: _height / 3,
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "(Asmens nerodymas žemėlapyje)",
@@ -140,7 +130,7 @@ class _ProfileState extends State<ProfileScreen> {
                       )),
                   new Container(
                     margin: EdgeInsets.fromLTRB(0, 340, 40, 75),
-                    height: _height / 1.2,
+                    height: _height / 5,
                     alignment: Alignment.centerRight,
                     child: FlutterSwitch(
                       height: 20.0,
@@ -159,7 +149,7 @@ class _ProfileState extends State<ProfileScreen> {
                   ),
                   new Container(
                       margin: EdgeInsets.fromLTRB(25, 375, 0, 0),
-                      height: _height / 1.2,
+                      height: _height / 3,
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Numatyta vieta",
