@@ -23,7 +23,10 @@ class GroupsListScreen extends StatelessWidget {
                 }
             ),
           ),
-          NewGroupButton()
+          NewGroupButton(),
+          SizedBox(
+              height: 15,
+            )
         ]),
       ),
     );
@@ -38,10 +41,7 @@ class NewGroupButton extends StatelessWidget {
       alignment: Alignment.bottomRight,
       child: MaterialButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => GroupsListScreen()),
-          );
+          print("new group");
         },
         color: Colors.grey,
         textColor: Colors.white,
