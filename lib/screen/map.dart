@@ -18,6 +18,7 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   List<Marker> markers = [];
   LatLng _centerLocationVariable;
+  bool parsedEvents = false;
 
   initState() {
     super.initState();
@@ -58,13 +59,15 @@ class _MapScreenState extends State<MapScreen> {
         markers.add(eventMarker);
       }
     }
+    parsedEvents = true;
+
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _centerLocationVariable == null || markers.isEmpty
+        body: _centerLocationVariable == null || !parsedEvents
             ? Center(
                 child: CircularProgressIndicator(),
               )
