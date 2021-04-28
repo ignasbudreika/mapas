@@ -1,6 +1,5 @@
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:intl/intl.dart';
 
 class NewEventScreen extends StatefulWidget {
@@ -43,54 +42,55 @@ class _NewEventState extends State<NewEventScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                      height: (MediaQuery.of(context).size.height - 70) * 0.25,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: GestureDetector(
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.black,
-                                size: 25.0,
-                              ),
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
+                    height: (MediaQuery.of(context).size.height - 70) * 0.25,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: GestureDetector(
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.black,
+                              size: 25.0,
                             ),
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
                           ),
-                          SizedBox(
-                            height: 25,
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: Text('Add new',
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Text('Add new',
+                              style: TextStyle(
+                                  fontSize: 50.0, fontWeight: FontWeight.bold)),
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            children: [
+                              Text(
+                                'Event ',
                                 style: TextStyle(
                                     fontSize: 50.0,
-                                    fontWeight: FontWeight.bold)),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                '.',
+                                style: TextStyle(
+                                    fontSize: 50.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey[400]),
+                              ),
+                            ],
                           ),
-                          Container(
-                              alignment: Alignment.centerLeft,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Event ',
-                                    style: TextStyle(
-                                        fontSize: 50.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    '.',
-                                    style: TextStyle(
-                                        fontSize: 50.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey[400]),
-                                  ),
-                                ],
-                              )),
-                        ],
-                      )),
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     height: (MediaQuery.of(context).size.height - 70) * 0.75,
                     child: Form(
