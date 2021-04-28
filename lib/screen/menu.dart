@@ -67,7 +67,7 @@ class _MenuState extends State<Menu> {
                   GButton(
                     icon: LineIcons.userFriends,
                     text: 'Groups',
-                  )
+                  ),
                   // GButton(
                   //   icon: LineIcons.user,
                   //   text: 'Profile',
@@ -77,6 +77,7 @@ class _MenuState extends State<Menu> {
                 onTabChange: (index) {
                   setState(() {
                     _selectedIndex = index;
+                    event = null;
                   });
                 }),
           ),
