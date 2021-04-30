@@ -13,10 +13,11 @@ class EventsListScreen extends StatefulWidget {
 class _EventsListScreenState extends State<EventsListScreen> {
   var events = [];
   bool parsedEvents = false;
-
+  Firebase firebase;
   @override
   initState() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+    firebase = new Firebase();
     getAllEvents();
     super.initState();
   }
@@ -30,7 +31,6 @@ class _EventsListScreenState extends State<EventsListScreen> {
         events.add(event);
       }
     }
-
     setState(() {
       parsedEvents = true;
     });
@@ -115,7 +115,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
                       onTap: () =>
                           Menu.of(context).changeScreen(0, events[index]),
                       title: Text(events[index].title),
-                      trailing: DeleteEventButton(),
+                      trailing: deleteEventButton(events[index]),
                     ),
                     Divider(),
                   ],
@@ -156,19 +156,17 @@ class NewEventButton extends StatelessWidget {
   }
 }
 
-class DeleteEventButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: () {
-        print("delete event");
-      },
-      child: Icon(
-        Icons.close_rounded,
-        size: 20,
-      ),
-      padding: EdgeInsets.all(1),
-      shape: CircleBorder(),
-    );
-  }
+Widget deleteEventButton(EventModel eventModel) {
+  Firebase firebase = new Firebase();
+  return MaterialButton(
+    onPressed: () {
+      firebase.deleteEvent(eventModel.id);
+    },
+    child: Icon(
+      Icons.close_rounded,
+      size: 20,
+    ),
+    padding: EdgeInsets.all(1),
+    shape: CircleBorder(),
+  );
 }
