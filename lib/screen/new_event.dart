@@ -1,6 +1,9 @@
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mapas/back/firebase.dart';
+
+import '../location/location.dart';
 
 class NewEventScreen extends StatefulWidget {
   @override
@@ -22,6 +25,17 @@ class _NewEventState extends State<NewEventScreen> {
     descriptionController.dispose();
     dateController.dispose();
     addressController.dispose();
+  }
+
+  Future<void> getAllEvents() async {
+    Firebase firebase = new Firebase();
+    var allEvents = await firebase.getAllEvents();
+  }
+
+  Future<void> addEvent() async {
+    Firebase firebase = new Firebase();
+    firebase.addEvent(titleController.text, descriptionController.text,
+        addressController.text, dateController.text, addressController.text);
   }
 
   @override
@@ -216,26 +230,26 @@ class _NewEventState extends State<NewEventScreen> {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () async => {
-                              if (_formKey.currentState.validate())
-                                {
-                                  // example of how to get form data
-                                  print(titleController.text +
-                                      descriptionController.text +
-                                      dateController.text +
-                                      addressController.text),
-                                  // call function to add data to database
-                                  // if success add snackbar of success
-                                  // if not add unsuccessful snackbar
-                                  //
-                                  //  example of LatLng parsing
-                                  //     print(await MapLocation
-                                  //     .determineGeoLocation(
-                                  //         "Turgaus g. 33, Klaipėda 91249")),
+                            onTap: () async {
+                              if (_formKey.currentState.validate()) {
+                                try {
+                                  addEvent();
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text('event added'))),
-                                  Navigator.pop(context),
+                                    SnackBar(
+                                      content: Text('event added'),
+                                    ),
+                                  );
+                                } catch (e) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content:
+                                          Text('Error! Event was not added!'),
+                                    ),
+                                  );
                                 }
+
+                                Navigator.pop(context);
+                              }
                             },
                             child: Container(
                               height: 35.0,

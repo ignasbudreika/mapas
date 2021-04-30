@@ -1,6 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mapas/models/event_model.dart';
 
+import '../location/location.dart';
+import '../models/event_model.dart';
+import 'package:latlong/latlong.dart';
+
 class Firebase {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -55,5 +59,25 @@ class Firebase {
     }
 
     return events;
+  }
+
+  Future<void> addEvent(String title, String description, String location,
+      String start, String address) async {
+    LatLng latlng = await MapLocation.determineGeoLocation(location);
+
+    Map<String, Object> event = {
+      "title": title,
+      "description": description,
+      "location": GeoPoint(latlng.latitude, latlng.longitude),
+      "start": start,
+      "address": address,
+      "isDeleted": false
+    };
+
+    try {
+      _firestore.collection('events').add(event);
+    } catch (e) {
+      print(e);
+    }
   }
 }
