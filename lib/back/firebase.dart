@@ -28,7 +28,7 @@ class Firebase {
   }
 
   void deleteEvent(String id) async {
-    await _firestore.collection('events').doc(id).set({'isDeleted': false});
+    await _firestore.collection('events').doc(id).update({'isDeleted': true});
   }
 
   Future<List<EventModel>> getAllEvents() async {
