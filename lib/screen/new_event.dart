@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mapas/back/firebase.dart';
 
-import '../location/location.dart';
-
 class NewEventScreen extends StatefulWidget {
   @override
   _NewEventState createState() => _NewEventState();
@@ -25,11 +23,6 @@ class _NewEventState extends State<NewEventScreen> {
     descriptionController.dispose();
     dateController.dispose();
     addressController.dispose();
-  }
-
-  Future<void> getAllEvents() async {
-    Firebase firebase = new Firebase();
-    var allEvents = await firebase.getAllEvents();
   }
 
   Future<void> addEvent() async {

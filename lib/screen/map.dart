@@ -21,9 +21,10 @@ class _MapScreenState extends State<MapScreen> {
   LatLng _centerLocationVariable;
   bool parsedEvents = false;
 
-  initState() {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  @override
+  void initState() {
     super.initState();
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     if (widget.centerEvent == null) {
       getAllEvents();
       getCenterPosition();

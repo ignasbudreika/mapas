@@ -11,7 +11,7 @@ class EventsListScreen extends StatefulWidget {
 }
 
 class _EventsListScreenState extends State<EventsListScreen> {
-  var events = [];
+  var events;
   bool parsedEvents = false;
   Firebase firebase;
   @override
@@ -23,6 +23,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
   }
 
   Future<void> getAllEvents() async {
+    events = [];
     Firebase firebase = new Firebase();
     var allEvents = await firebase.getAllEvents();
 
@@ -93,7 +94,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
             ],
           ),
           Spacer(),
-          NewEventButton(),
+          newEventButton(),
           SizedBox(
             height: 15,
           )
@@ -122,22 +123,38 @@ class _EventsListScreenState extends State<EventsListScreen> {
                 );
               }),
         ),
-        NewEventButton(),
+        newEventButton(),
         SizedBox(
           height: 15,
         )
       ],
     );
   }
-}
 
-class NewEventButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget deleteEventButton(EventModel eventModel) {
+    Firebase firebase = new Firebase();
+    return MaterialButton(
+      onPressed: () {
+        firebase.deleteEvent(eventModel.id);
+        setState(() {
+          parsedEvents = false;
+          getAllEvents();
+        });
+      },
+      child: Icon(
+        Icons.close_rounded,
+        size: 20,
+      ),
+      padding: EdgeInsets.all(1),
+      shape: CircleBorder(),
+    );
+  }
+
+  newEventButton() {
     return Align(
       alignment: Alignment.bottomRight,
       child: MaterialButton(
-        onPressed: () {
+        onPressed: () async {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => NewEventScreen()),
@@ -154,19 +171,4 @@ class NewEventButton extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget deleteEventButton(EventModel eventModel) {
-  Firebase firebase = new Firebase();
-  return MaterialButton(
-    onPressed: () {
-      firebase.deleteEvent(eventModel.id);
-    },
-    child: Icon(
-      Icons.close_rounded,
-      size: 20,
-    ),
-    padding: EdgeInsets.all(1),
-    shape: CircleBorder(),
-  );
 }
