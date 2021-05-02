@@ -19,12 +19,11 @@ class _EventsListScreenState extends State<EventsListScreen> {
   @override
   initState() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-    firebase = new Firebase();
-    getAllEvents();
+    getAllEvents(null);
     super.initState();
   }
 
-  Future<void> getAllEvents() async {
+  Future<void> getAllEvents(String value) async {
     events = [];
     Firebase firebase = new Firebase();
     var allEvents = await firebase.getAllEvents();
@@ -37,6 +36,14 @@ class _EventsListScreenState extends State<EventsListScreen> {
     setState(() {
       parsedEvents = true;
     });
+
+    if (value != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('$value'),
+        ),
+      );
+    }
   }
 
   @override
@@ -115,11 +122,15 @@ class _EventsListScreenState extends State<EventsListScreen> {
                 return Column(
                   children: <Widget>[
                     ListTile(
-                      onTap: () =>
-                          Menu.of(context).changeScreen(0, events[index]),
-                      title: Text(events[index].title),
-                      trailing: deleteEventButton(events[index]),
-                    ),
+                        onTap: () =>
+                            Menu.of(context).changeScreen(0, events[index]),
+                        title: Text(events[index].title),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            deleteEventButton(events[index]),
+                          ],
+                        )),
                     Divider(),
                   ],
                 );
@@ -134,16 +145,14 @@ class _EventsListScreenState extends State<EventsListScreen> {
   }
 
   Widget deleteEventButton(EventModel eventModel) {
-    return MaterialButton(
-      onPressed: () {
-        _showDialog(eventModel.id);
-      },
-      child: Icon(
+    return IconButton(
+      color: Colors.black,
+      splashRadius: 15,
+      icon: Icon(
         Icons.close_rounded,
-        size: 20,
       ),
-      padding: EdgeInsets.all(1),
-      shape: CircleBorder(),
+      iconSize: 15,
+      onPressed: () => _showDialog(eventModel.id),
     );
   }
 
@@ -152,10 +161,15 @@ class _EventsListScreenState extends State<EventsListScreen> {
       alignment: Alignment.bottomRight,
       child: MaterialButton(
         onPressed: () async {
-          Navigator.push(
+          await Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => NewEventScreen()),
-          );
+          ).then((value) {
+            setState(() {
+              parsedEvents = false;
+              getAllEvents(value);
+            });
+          });
         },
         color: Colors.grey,
         textColor: Colors.white,
@@ -189,7 +203,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
                 firebase.deleteEvent(id);
                 setState(() {
                   parsedEvents = false;
-                  getAllEvents();
+                  getAllEvents(null);
                 });
                 Navigator.of(context).pop();
               },

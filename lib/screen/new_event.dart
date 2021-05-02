@@ -226,22 +226,13 @@ class _NewEventState extends State<NewEventScreen> {
                             onTap: () async {
                               if (_formKey.currentState.validate()) {
                                 try {
-                                  addEvent();
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text('event added'),
-                                    ),
-                                  );
+                                  addEvent().then((value) {
+                                    Navigator.pop(context, 'event added');
+                                  });
                                 } catch (e) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content:
-                                          Text('Error! Event was not added!'),
-                                    ),
-                                  );
+                                  Navigator.pop(
+                                      context, 'Error! Event was not added!');
                                 }
-
-                                Navigator.pop(context);
                               }
                             },
                             child: Container(
