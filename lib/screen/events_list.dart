@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mapas/back/firebase.dart';
@@ -132,14 +134,9 @@ class _EventsListScreenState extends State<EventsListScreen> {
   }
 
   Widget deleteEventButton(EventModel eventModel) {
-    Firebase firebase = new Firebase();
     return MaterialButton(
       onPressed: () {
-        firebase.deleteEvent(eventModel.id);
-        setState(() {
-          parsedEvents = false;
-          getAllEvents();
-        });
+        _showDialog(eventModel.id);
       },
       child: Icon(
         Icons.close_rounded,
@@ -169,6 +166,46 @@ class _EventsListScreenState extends State<EventsListScreen> {
         padding: EdgeInsets.all(10),
         shape: CircleBorder(),
       ),
+    );
+  }
+
+  void _showDialog(String id) {
+    Firebase firebase = new Firebase();
+
+    showDialog(
+      barrierDismissible: true,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          contentPadding: EdgeInsets.fromLTRB(20, 24, 24, 0),
+          content: new Text("Are you sure you want to delete this event"),
+          actions: <Widget>[
+            new TextButton(
+              child: new Text(
+                "Yes",
+                style: TextStyle(color: Colors.grey),
+              ),
+              onPressed: () {
+                firebase.deleteEvent(id);
+                setState(() {
+                  parsedEvents = false;
+                  getAllEvents();
+                });
+                Navigator.of(context).pop();
+              },
+            ),
+            new TextButton(
+              child: new Text(
+                "No",
+                style: TextStyle(color: Colors.grey),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
