@@ -1,12 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mapas/models/event_model.dart';
+import 'package:mapas/models/user_model.dart';
 
 import '../location/location.dart';
 import '../models/event_model.dart';
 import 'package:latlong/latlong.dart';
 
 class Firebase {
+  String _uid = "";
+  String get getUid => _uid;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   // example method
   Future<EventModel> getEventData(String id) async {
@@ -83,5 +88,66 @@ class Firebase {
     } catch (e) {
       print(e);
     }
+  }
+
+  Future<bool> createUser(UserModel user) async {
+    bool added = false;
+
+    try {
+      await _firestore.collection('users').add({
+        'email': user.email,
+        'uid': user.uid,
+      });
+
+      added = true;
+    } catch (e) {
+      print(e);
+    }
+
+    return added;
+  }
+
+  Future<bool> signUpUser(String email, String password) async {
+    bool success = false;
+
+    try {
+      final UserCredential _auth = await _firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      final UserModel _user = UserModel(
+        uid: _auth.user.uid,
+        email: email,
+      );
+
+      final bool userCreated = await Firebase().createUser(_user);
+
+      if (userCreated) {
+        success = userCreated;
+        Firebase()._uid = _auth.user.uid;
+      }
+    } catch (e) {
+      print(e);
+    }
+
+    return success;
+  }
+
+  Future<bool> logInUser(String email, String password) async {
+    bool success = false;
+    try {
+      final UserCredential _auth = await _firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
+
+      if (_auth.user != null) {
+        _uid = _auth.user.uid;
+
+        if (_uid != null) {
+          success = true;
+        }
+      }
+    } catch (e) {
+      print(e);
+    }
+
+    return success;
   }
 }
