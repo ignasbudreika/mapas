@@ -127,6 +127,9 @@ class _SignUpState extends State<SignUpScreen> {
                               if (value == null || value.isEmpty) {
                                 return 'cmon enter your pw!!!';
                               }
+                              if (value.length < 6) {
+                                return 'password must contain at least 6 characters';
+                              }
                               return null;
                             },
                             cursorColor: Colors.black,

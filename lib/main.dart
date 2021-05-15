@@ -20,7 +20,10 @@ class _Application extends State<Application> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: (backas.Firebase().getUid == "" ? LogInScreen() : Menu()),
+      home:
+          ((backas.Firebase().getUid == "" || backas.Firebase().getUid == null)
+              ? LogInScreen()
+              : Menu()),
     );
   }
 }

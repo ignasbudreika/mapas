@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class EventModel {
   String id;
   String title;
+  String uid;
   String start;
   GeoPoint location;
   String address;
@@ -10,7 +11,12 @@ class EventModel {
   bool isDeleted;
 
   EventModel(
-      {this.id, this.title, this.start, this.location, this.description});
+      {this.id,
+      this.title,
+      this.start,
+      this.location,
+      this.description,
+      this.uid});
 
   @override
   String toString() {
@@ -19,6 +25,8 @@ class EventModel {
         this.title +
         " " +
         this.start +
+        " " +
+        this.uid +
         " " +
         this.location.latitude.toString() +
         " " +
