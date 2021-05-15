@@ -92,25 +92,8 @@ class Firebase {
     }
   }
 
-  Future<bool> createUser(UserModel user) async {
-    bool added = false;
-
-    try {
-      await _firestore.collection('users').add({
-        'email': user.email,
-        'uid': user.uid,
-      });
-
-      added = true;
-    } catch (e) {
-      print(e);
-    }
-
-    return added;
-  }
-
   Future<bool> signUpUser(String email, String password) async {
-    bool success = false;
+    bool success = true;
 
     try {
       final UserCredential _auth = await _firebaseAuth
@@ -120,14 +103,10 @@ class Firebase {
         email: email,
       );
 
-      final bool userCreated = await Firebase().createUser(_user);
-
-      if (userCreated) {
-        success = userCreated;
-        _uid = _auth.user.uid;
-      }
+      _uid = _auth.user.uid;
     } catch (e) {
       print(e);
+      success = false;
     }
 
     return success;
