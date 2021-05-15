@@ -29,7 +29,8 @@ class _EventsListScreenState extends State<EventsListScreen> {
     var allEvents = await firebase.getAllEvents();
 
     for (EventModel event in allEvents) {
-      if (!event.isDeleted) {
+      if (!event.isDeleted &&
+          event.start.compareTo(DateTime.now().toString()) > 0) {
         events.add(event);
       }
     }
