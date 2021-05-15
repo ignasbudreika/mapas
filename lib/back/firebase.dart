@@ -8,7 +8,7 @@ import '../models/event_model.dart';
 import 'package:latlong/latlong.dart';
 
 class Firebase {
-  String _uid = "";
+  static String _uid = "";
   String get getUid => _uid;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -29,6 +29,7 @@ class Firebase {
       event.location = dataMap['location'];
       event.address = dataMap['address'].toString();
       event.description = dataMap['description'].toString();
+      event.uid = dataMap['uid'].toString();
     } catch (e) {
       print(e);
     }
@@ -60,6 +61,7 @@ class Firebase {
         event.address = dataMap['address'].toString();
         event.description = dataMap['description'].toString();
         event.isDeleted = dataMap['isDeleted'];
+        event.uid = dataMap['uid'].toString();
 
         events.add(event);
       }
@@ -122,7 +124,7 @@ class Firebase {
 
       if (userCreated) {
         success = userCreated;
-        Firebase()._uid = _auth.user.uid;
+        _uid = _auth.user.uid;
       }
     } catch (e) {
       print(e);
@@ -139,6 +141,7 @@ class Firebase {
 
       if (_auth.user != null) {
         _uid = _auth.user.uid;
+        print(_auth.user.uid);
 
         if (_uid != null) {
           success = true;

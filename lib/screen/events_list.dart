@@ -144,16 +144,22 @@ class _EventsListScreenState extends State<EventsListScreen> {
     );
   }
 
-  Widget deleteEventButton(EventModel eventModel) {
-    return IconButton(
-      color: Colors.black,
-      splashRadius: 15,
-      icon: Icon(
-        Icons.close_rounded,
-      ),
-      iconSize: 15,
-      onPressed: () => _showDialog(eventModel.id),
-    );
+  deleteEventButton(EventModel eventModel) {
+    if (Firebase().getUid == eventModel.uid) {
+      return IconButton(
+        color: Colors.black,
+        splashRadius: 15,
+        icon: Icon(
+          Icons.close_rounded,
+        ),
+        iconSize: 15,
+        onPressed: () => {
+          _showDialog(eventModel.id),
+        },
+      );
+    } else {
+      return SizedBox.shrink();
+    }
   }
 
   newEventButton() {
