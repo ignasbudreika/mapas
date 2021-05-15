@@ -205,31 +205,37 @@ class _LogInScreenState extends State<LogInScreen> {
                                                     SignUpScreen()),
                                           ).then(
                                             (value) => {
-                                              if (value)
+                                              if (value != null)
                                                 {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                          'account successfully created, welcome to mapas!!'),
-                                                    ),
-                                                  ),
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            Menu()),
-                                                  )
-                                                }
-                                              else
-                                                {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                          'register failed, try again later'),
-                                                    ),
-                                                  ),
+                                                  if (value)
+                                                    {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                              'account successfully created, welcome to mapas!!'),
+                                                        ),
+                                                      ),
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder:
+                                                                (context) =>
+                                                                    Menu()),
+                                                      )
+                                                    }
+                                                  else
+                                                    {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                              'register failed, try again later'),
+                                                        ),
+                                                      ),
+                                                    }
                                                 }
                                             },
                                           );
