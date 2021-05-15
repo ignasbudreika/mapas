@@ -33,7 +33,7 @@ class _MenuState extends State<Menu> {
         centerEvent: event,
       ),
       EventsListScreen(),
-      GroupsListScreen()
+      // GroupsListScreen()
       // ProfileScreen(),
     ];
 
@@ -55,6 +55,7 @@ class _MenuState extends State<Menu> {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
                 duration: Duration(milliseconds: 400),
                 tabBackgroundColor: Colors.grey[100],
+                mainAxisAlignment: MainAxisAlignment.center,
                 tabs: [
                   GButton(
                     icon: LineIcons.map,
@@ -63,11 +64,11 @@ class _MenuState extends State<Menu> {
                   GButton(
                     icon: Icons.calendar_view_day,
                     text: 'Events',
-                  ),
-                  GButton(
-                    icon: LineIcons.userFriends,
-                    text: 'Groups',
-                  ),
+                  )
+                  // GButton(
+                  //   icon: LineIcons.userFriends,
+                  //   text: 'Groups',
+                  // ),
                   // GButton(
                   //   icon: LineIcons.user,
                   //   text: 'Profile',

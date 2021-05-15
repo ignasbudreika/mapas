@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mapas/screen/login.dart';
 import 'package:mapas/screen/menu.dart';
+import 'package:mapas/back/firebase.dart' as backas;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +20,7 @@ class _Application extends State<Application> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Menu(),
+      home: (backas.Firebase().getUid == "" ? LogInScreen() : Menu()),
     );
   }
 }

@@ -79,17 +79,45 @@ class LogInScreen extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(children: [
                     TextSpan(
-                        text: 'Don\'t have an account? ',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => SignUp()),
-                            );
-                          }),
+                      text: 'Don\'t have an account? ',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpScreen()),
+                          ).then(
+                            (value) => {
+                              if (value)
+                                {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                          'account successfully created, welcome to mapas!!'),
+                                    ),
+                                  ),
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Menu()),
+                                  )
+                                }
+                              else
+                                {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                          'register failed, try again later'),
+                                    ),
+                                  ),
+                                }
+                            },
+                          );
+                        },
+                    ),
                     TextSpan(
                       text: 'Sign Up',
                       style: TextStyle(
