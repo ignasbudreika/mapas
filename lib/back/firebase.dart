@@ -69,7 +69,7 @@ class Firebase {
     return events;
   }
 
-  Future<void> addEvent(String title, String description, String location,
+  Future<bool> addEvent(String title, String description, String location,
       String start, String address) async {
     LatLng latlng = await MapLocation.determineGeoLocation(location);
 
@@ -86,7 +86,10 @@ class Firebase {
       _firestore.collection('events').add(event);
     } catch (e) {
       print(e);
+      return false;
     }
+
+    return true;
   }
 
   Future<bool> signUpUser(String email, String password) async {

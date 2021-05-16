@@ -25,9 +25,9 @@ class _NewEventState extends State<NewEventScreen> {
     addressController.dispose();
   }
 
-  Future<void> addEvent() async {
+  Future<bool> addEvent() async {
     Firebase firebase = new Firebase();
-    firebase.addEvent(titleController.text, descriptionController.text,
+    return firebase.addEvent(titleController.text, descriptionController.text,
         addressController.text, dateController.text, addressController.text);
   }
 
@@ -227,7 +227,12 @@ class _NewEventState extends State<NewEventScreen> {
                               if (_formKey.currentState.validate()) {
                                 try {
                                   addEvent().then((value) {
-                                    Navigator.pop(context, 'event added');
+                                    if (value) {
+                                      Navigator.pop(context, 'event added');
+                                    } else {
+                                      Navigator.pop(context,
+                                          'something went wrong, try again :D');
+                                    }
                                   });
                                 } catch (e) {
                                   Navigator.pop(
