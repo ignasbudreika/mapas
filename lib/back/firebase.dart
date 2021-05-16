@@ -79,7 +79,8 @@ class Firebase {
       "location": GeoPoint(latlng.latitude, latlng.longitude),
       "start": start,
       "address": address,
-      "isDeleted": false
+      "isDeleted": false,
+      "uid": Firebase._uid
     };
 
     try {
