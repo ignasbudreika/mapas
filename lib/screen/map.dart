@@ -6,7 +6,7 @@ import 'package:flutter_map/plugin_api.dart';
 import 'package:mapas/back/firebase.dart';
 import 'package:mapas/location/location.dart';
 import 'package:latlong/latlong.dart';
-import 'package:mapas/models/event_model.dart';
+import 'package:mapas/model/event_model.dart';
 
 class MapScreen extends StatefulWidget {
   EventModel centerEvent;

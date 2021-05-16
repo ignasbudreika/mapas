@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mapas/models/event_model.dart';
-import 'package:mapas/models/user_model.dart';
-
+import 'package:mapas/model/event_model.dart';
 import '../location/location.dart';
-import '../models/event_model.dart';
+import '../model/event_model.dart';
 import 'package:latlong/latlong.dart';
 
 class Firebase {
@@ -13,7 +11,6 @@ class Firebase {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  // example method
   Future<EventModel> getEventData(String id) async {
     EventModel event = EventModel();
 
@@ -98,10 +95,6 @@ class Firebase {
     try {
       final UserCredential _auth = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
-      final UserModel _user = UserModel(
-        uid: _auth.user.uid,
-        email: email,
-      );
 
       _uid = _auth.user.uid;
     } catch (e) {

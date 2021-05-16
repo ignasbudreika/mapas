@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:mapas/models/event_model.dart';
-import 'package:mapas/screen/groups_list.dart';
+import 'package:mapas/model/event_model.dart';
 import 'package:mapas/screen/map.dart';
 import 'package:mapas/screen/events_list.dart';
 

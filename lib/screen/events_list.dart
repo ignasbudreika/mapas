@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mapas/back/firebase.dart';
-import 'package:mapas/models/event_model.dart';
+import 'package:mapas/model/event_model.dart';
 import 'package:mapas/screen/menu.dart';
 import 'package:mapas/screen/new_event.dart';
 
