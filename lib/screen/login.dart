@@ -192,7 +192,7 @@ class _LogInScreenState extends State<LogInScreen> {
                               child: RichText(
                                 text: TextSpan(children: [
                                   TextSpan(
-                                      text: 'Already have an account? ',
+                                      text: 'Don\'t have an account? ',
                                       style: TextStyle(
                                         color: Colors.black,
                                       ),
@@ -241,7 +241,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                           );
                                         }),
                                   TextSpan(
-                                    text: 'Log In',
+                                    text: 'Register',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
