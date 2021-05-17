@@ -59,7 +59,8 @@ class _MapScreenState extends State<MapScreen> {
 
   void initializeMarkers(List<EventModel> allEvents) {
     for (EventModel event in allEvents) {
-      if (!event.isDeleted) {
+      if (!event.isDeleted &&
+          event.start.compareTo(DateTime.now().toString()) > 0) {
         Marker eventMarker = marker(event);
         markers.add(eventMarker);
       }
